@@ -1,29 +1,17 @@
-import { useState } from "react";
-
-type EventProps = {
+type Props = {
   title: string;
   location: string;
   date: string;
   description: string;
 };
 
-export default function Event({ title, location, date, description }: EventProps) {
-  const [showDetails, setShowDetails] = useState(false);
-
+export default function Event({ title, location, date, description }: Props) {
   return (
-    <li className="event">
+    <li>
       <h3>{title}</h3>
       <p>{location}</p>
       <p>{date}</p>
-
-      {!showDetails ? (
-        <button onClick={() => setShowDetails(true)}>Show details</button>
-      ) : (
-        <>
-          <p>{description}</p>
-          <button onClick={() => setShowDetails(false)}>Hide details</button>
-        </>
-      )}
+      <p>{description}</p>
     </li>
   );
 }
