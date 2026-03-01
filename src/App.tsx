@@ -1,11 +1,12 @@
+import EventList from "./components/EventList";
+
 function App() {
   return (
     <div>
       <h1>Meet App</h1>
-      <p>Welcome to the Meet App</p>
+      <EventList />
     </div>
   );
 }
 
 export default App;
-
