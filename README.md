@@ -140,3 +140,6 @@ Scenario: Show a chart with the number of upcoming events in each city
   When the user views the charts section
   Then the user should see a chart showing the number of upcoming events per city
 ```
+
+
+
