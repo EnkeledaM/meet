@@ -1,4 +1,5 @@
 # Meet App
+**Live Demo:** https://meet-fi45midtv-enkeledams-projects.vercel.app/
 
 A serverless, progressive web application (PWA) built with React using a test-driven development (TDD) approach.  
 The app allows users to search for events in different cities, view event details, and use the app even while offline.
