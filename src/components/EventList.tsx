@@ -1,5 +1,12 @@
 import Event from "./Event";
-import type { EventItem } from "../App";
+
+type EventItem = {
+  id: number;
+  title: string;
+  location: string;
+  date: string;
+  description: string;
+};
 
 type Props = {
   events: EventItem[];
