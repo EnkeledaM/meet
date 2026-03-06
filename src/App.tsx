@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import CitySearch from "./components/CitySearch";
 import EventList from "./components/EventList";
+import NOE from "./components/NOE";
 
 type EventItem = {
   id: number;
@@ -38,11 +39,16 @@ export default function App() {
   const allLocations = [...new Set(allEvents.map((e) => e.location))];
 
   const [selectedCity, setSelectedCity] = useState<string>("all");
+  const [currentNOE, setCurrentNOE] = useState<number>(32);
 
-  const filteredEvents =
-    selectedCity === "all"
-      ? allEvents
-      : allEvents.filter((e) => e.location === selectedCity);
+  const filteredEvents = useMemo(() => {
+    const cityFiltered =
+      selectedCity === "all"
+        ? allEvents
+        : allEvents.filter((e) => e.location === selectedCity);
+
+    return cityFiltered.slice(0, currentNOE);
+  }, [selectedCity, currentNOE]);
 
   return (
     <div>
@@ -50,7 +56,12 @@ export default function App() {
 
       <CitySearch
         allLocations={allLocations}
-        onCitySelect={(city) => setSelectedCity(city)}
+        onCitySelect={setSelectedCity}
+      />
+
+      <NOE
+        currentNOE={currentNOE}
+        onNOEChange={setCurrentNOE}
       />
 
       <EventList events={filteredEvents} />
